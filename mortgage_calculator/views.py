@@ -4,7 +4,7 @@ from .utils import calculate_overpayment_schedule
 
 
 class AffordabilityCalculatorView(TemplateView):
-    template_name = 'mortgage_calculator/affordability_calculator.html'
+    template_name = 'mortgage_calculator/affordability.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
