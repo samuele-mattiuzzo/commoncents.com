@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mortgage Calculator</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+            text-align: right; /* Align numbers to the right */
+        }
+    </style>
+</head>
+<body>
+    <h1>Mortgage Calculator</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <label for="cost_of_debt">Cost of Mortgage Debt (£):</label>
+        <input type="number" name="cost_of_debt" required><br><br>
+
+        <label for="mortgage_term">Mortgage Term (Years):</label>
+        <input type="number" name="mortgage_term" required><br><br>
+
+        <label for="mortgage_type">Mortgage Type:</label>
+        <select name="mortgage_type">
+            <option value="repayment">Repayment</option>
+            <option value="interest_only">Interest Only</option>
+        </select><br><br>
+
+        <label for="interest_rate">Interest Rate (%):</label>
+        <input type="number" name="interest_rate" step="any" ><br><br>
+
+        <label for="monthly_repayment">Monthly Repayment (£):</label>
+        <input type="number" name="monthly_repayment" step="any" ><br><br>
+
+        <h2>Overpayment</h2>
+        <label for="one_off_overpayment">One-Off Overpayment (£):</label>
+        <input type="number" name="one_off_overpayment" value="0"><br><br>
+
+        <label for="recurring_overpayment">Recurring Monthly Overpayment (£):</label>
+        <input type="number" name="recurring_overpayment" value="0"><br><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+
+    {% if show_results %}
+    <h2>Results</h2>
+    <h2>Overpayment Schedule</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Year</th>
+                <th>Starting Balance (£)</th>
+                <th>Ending Balance (£)</th>
+                <th>Total Paid (Standard) (£)</th>
+                <th>Total Paid (Overpayment) (£)</th>
+                <th>Max Overpayment Allowed (£)</th>
+                <th>Max Monthly Overpayment (£)</th>
+                <th>Recurring Overpayment Used (£)</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in overpayment_schedule %}
+            <tr>
+                <td>{{ item.year }}</td>
+                <td>{{ item.starting_balance }}</td>
+                <td>{{ item.ending_balance }}</td>
+                <td>{{ item.total_paid_standard }}</td>
+                <td>{{ item.total_paid_overpayment }}</td>
+                <td>{{ item.max_overpayment_allowed }}</td>
+                <td>{{ item.max_monthly_overpayment }}</td>
+                <td>{{ item.recurring_overpayment_used }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+
+</body>
+</html>
