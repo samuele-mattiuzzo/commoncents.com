@@ -1,19 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Mortgage Calculator</title>
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 5px;
-            text-align: right; /* Align numbers to the right */
-        }
-    </style>
-</head>
-<body>
-    <h1>Mortgage Calculator</h1>
-    <form method="post">
+{% extends "webapp/base.html" %}
+{% load static %}
+
+{% block title %}Overpayment Calculator{% endblock %}
+{% block heading %}Overpayment Calculator{% endblock %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'calculators:overpayment_calculator' %}">Overpayment Calculator</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="two-column-layout">
+    <div class="form-column">
+        <form method="post">
         {% csrf_token %}
 
         <label for="cost_of_debt">Cost of Mortgage Debt (£):</label>
@@ -78,5 +76,6 @@
     </table>
     {% endif %}
 
-</body>
-</html>
+    </div>
+</div>
+{% endblock %}

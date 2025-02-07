@@ -1,11 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Affordability Calculator</title>
-</head>
-<body>
-    <h1>Affordability Calculator</h1>
-    <form method="post">
+{% extends "webapp/base.html" %}
+{% load static %}
+
+{% block title %}Affordability Calculator{% endblock %}
+{% block heading %}Affordability Calculator{% endblock %}
+
+{% block breadcrumbs %}
+    <li><a href="{% url 'calculators:affordability_calculator' %}">Affordability Calculator</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="two-column-layout">
+    <div class="form-column">
+        <form method="post">
         {% csrf_token %}
 
         <label for="income">Annual Income:</label>
@@ -25,12 +31,13 @@
 
         <button type="submit">Calculate</button>
     </form>
-
+</div>
+<div class="results-column">
     {% if show_results %}
     <h2>Results</h2>
-    <p>Maximum Affordable Loan: ${{ max_loan }}</p>
-    <p>Monthly Payment: ${{ monthly_payment }}</p>
+    <p>Maximum Affordable Loan: £{{ max_loan }}</p>
+    <p>Monthly Payment: £{{ monthly_payment }}</p>
     {% endif %}
-
-</body>
-</html>
+</div>
+</div>
+{% endblock %}

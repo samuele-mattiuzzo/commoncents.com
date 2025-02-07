@@ -1,0 +1,20 @@
+{% extends "webapp/base.html" %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+{% block heading %}Common Cents{% endblock %}
+
+{% block content %}
+    <div class="grid-container">
+        <div class="grid-item">
+            <h2>Affordability Calculator</h2>
+            <p>Determine how much you can afford to borrow.</p>
+            <a href="{% url 'calculators:affordability_calculator' %}"><button>View</button></a>
+        </div>
+        <div class="grid-item">
+            <h2>Overpayment Calculator</h2>
+            <p>Calculate your mortgage payments and overpayment schedule.</p>
+            <a href="{% url 'calculators:overpayment_calculator' %}"><button>View</button></a>
+        </div>
+    </div>
+{% endblock %}

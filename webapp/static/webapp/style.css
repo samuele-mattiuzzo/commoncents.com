@@ -1,0 +1,114 @@
+body {
+    font-family: sans-serif, arial;
+    margin: 0; /* Remove default body margin */
+}
+
+header {
+    background-color: lightblue;
+    color: white;
+    text-transform: uppercase;
+    padding: 20px;
+    text-align: center;
+}
+
+nav {
+    padding: 10px;
+}
+
+.breadcrumbs {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.breadcrumbs li {
+    display: inline;
+    margin-right: 5px;
+}
+
+.breadcrumbs li:after {
+    content: "/";
+    margin-left: 5px;
+}
+
+.breadcrumbs li:last-child:after {
+    content: ""; /* Remove slash after last item */
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Spacing between grid items */
+    padding: 20px;
+}
+
+.grid-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    text-align: center; /* Center text within grid items */
+}
+
+.grid-item h2 {
+    margin-top: 0; /* Remove top margin from headings */
+}
+
+.two-column-layout {
+    display: flex;
+    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    padding: 20px;
+
+}
+
+.form-column {
+    flex: 35%; /* 35% width */
+    padding-right: 20px;
+}
+
+.results-column {
+    flex: 65%; /* 65% width */
+}
+
+footer {
+    background-color: lightblue;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: relative; /* Fixed to the bottom */
+    width: 100%;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input[type="number"],
+form select {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+form button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: right;
+}
+
+th {
+    text-align: left;
+}

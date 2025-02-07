@@ -1,0 +1,30 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}Common Cents{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'webapp/style.css' %}">
+</head>
+<body>
+    <header>
+        <h1>{% block heading %}Common Cents{% endblock %}</h1>
+    </header>
+
+    <nav>
+        <ul class="breadcrumbs">
+            <li><a href="/">Home</a></li>
+            {% block breadcrumbs %}{% endblock %}
+        </ul>
+    </nav>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Samuele Mattiuzzo / Common Cents</p>
+    </footer>
+
+</body>
+</html>
