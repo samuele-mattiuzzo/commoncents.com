@@ -11,6 +11,18 @@ dependencies = [
     "django (>=5.1.6,<6.0.0)"
 ]
 
+[tool.poetry.group.dev.dependencies]
+black = "^25.1.0"
+pylint = "^3.3.4"
+pre-commit = "^4.1.0"
+
+[tool.poetry.scripts]
+runserver = "python manage.py runserver"
+makemigrations = "python manage.py makemigrations"
+migrate = "python manage.py migrate"
+format = "black ."  # Format all Python files in the project
+lint = "pylint ."   # Lint all Python files in the project
+pre-commit = "pre-commit run"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
