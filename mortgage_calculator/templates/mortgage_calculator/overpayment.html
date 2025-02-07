@@ -12,70 +12,70 @@
 <div class="two-column-layout">
     <div class="form-column">
         <form method="post">
-        {% csrf_token %}
+            {% csrf_token %}
+            <h2>Mortgage</h2>
 
-        <label for="cost_of_debt">Cost of Mortgage Debt (£):</label>
-        <input type="number" name="cost_of_debt" required><br><br>
+            <label for="cost_of_debt">Cost of Mortgage Debt (£):</label>
+            <input type="number" name="cost_of_debt" required><br><br>
 
-        <label for="mortgage_term">Mortgage Term (Years):</label>
-        <input type="number" name="mortgage_term" required><br><br>
+            <label for="mortgage_term">Mortgage Term (Years):</label>
+            <input type="number" name="mortgage_term" required><br><br>
 
-        <label for="mortgage_type">Mortgage Type:</label>
-        <select name="mortgage_type">
-            <option value="repayment">Repayment</option>
-            <option value="interest_only">Interest Only</option>
-        </select><br><br>
+            <label for="mortgage_type">Mortgage Type:</label>
+            <select name="mortgage_type">
+                <option value="repayment">Repayment</option>
+                <option value="interest_only">Interest Only</option>
+            </select><br><br>
 
-        <label for="interest_rate">Interest Rate (%):</label>
-        <input type="number" name="interest_rate" step="any" ><br><br>
+            <label for="interest_rate">Interest Rate (%):</label>
+            <input type="number" name="interest_rate" step="any" ><br><br>
 
-        <label for="monthly_repayment">Monthly Repayment (£):</label>
-        <input type="number" name="monthly_repayment" step="any" ><br><br>
+            <label for="monthly_repayment">Monthly Repayment (£):</label>
+            <input type="number" name="monthly_repayment" step="any" ><br><br>
 
-        <h2>Overpayment</h2>
-        <label for="one_off_overpayment">One-Off Overpayment (£):</label>
-        <input type="number" name="one_off_overpayment" value="0"><br><br>
+            <h2>Overpayment</h2>
+            <label for="one_off_overpayment">One-Off Overpayment (£):</label>
+            <input type="number" name="one_off_overpayment" value="0"><br><br>
 
-        <label for="recurring_overpayment">Recurring Monthly Overpayment (£):</label>
-        <input type="number" name="recurring_overpayment" value="0"><br><br>
+            <label for="recurring_overpayment">Recurring Monthly Overpayment (£):</label>
+            <input type="number" name="recurring_overpayment" value="0"><br><br>
 
-        <button type="submit">Calculate</button>
-    </form>
-
-
-    {% if show_results %}
-    <h2>Results</h2>
-    <h2>Overpayment Schedule</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Year</th>
-                <th>Remaining Balance (£)</th>
-                <th>Initial Lump Sum (£)</th>
-                <th>Total Paid (Standard) (£)</th>
-                <th>Total Paid (Overpayment) (£)</th>
-                <th>Overpayment Allowance (£)</th>
-                <th>Monthly Overpayment Available (£)</th>
-                <th>Yearly Overpayment (£)</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in overpayment_schedule %}
-            <tr>
-                <td>{{ item.year }}</td>
-                <td>{{ item.remaining_balance }}</td>
-                <td>{{ item.initial_lump_sum }}</td> 
-                <td>{{ item.total_paid_standard }}</td>
-                <td>{{ item.total_paid_overpayment }}</td>
-                <td>{{ item.overpayment_allowance }}</td>
-                <td>{{ item.monthly_overpayment_available }}</td>
-                <td>{{ item.yearly_overpayment }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% endif %}
-
+            <button type="submit">Calculate</button>
+        </form>
+    </div>
+    <div class="results-column">
+        {% if show_results %}
+        <h2>Results</h2>
+        <h2>Overpayment Schedule</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Remaining Balance (£)</th>
+                    <th>Total Paid (Standard) (£)</th>
+                    <th>Total Paid (Overpayment) (£)</th>
+                    <th>Overpayment Allowance (£)</th>
+                    <th>Monthly Overpayment Available (£)</th>
+                    <th>Yearly Overpayment (£)</th>
+                    <th>Initial Lump Sum (£)</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in overpayment_schedule %}
+                <tr>
+                    <td>{{ item.year }}</td>
+                    <td>{{ item.remaining_balance }}</td>
+                    <td>{{ item.total_paid_standard }}</td>
+                    <td>{{ item.total_paid_overpayment }}</td>
+                    <td>{{ item.overpayment_allowance }}</td>
+                    <td>{{ item.monthly_overpayment_available }}</td>
+                    <td>{{ item.yearly_overpayment }}</td>
+                    <td>{{ item.initial_lump_sum }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
     </div>
 </div>
 {% endblock %}

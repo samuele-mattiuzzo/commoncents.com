@@ -54,18 +54,17 @@ nav {
 
 .two-column-layout {
     display: flex;
-    flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+    /* Remove or comment out flex-wrap: wrap */
+    /* flex-wrap: wrap; */
     padding: 20px;
-
 }
 
 .form-column {
-    flex: 35%; /* 35% width */
-    padding-right: 20px;
+    flex: 30%; /* 35% width */
 }
 
 .results-column {
-    flex: 65%; /* 65% width */
+    flex: 70%; /* 65% width */
 }
 
 footer {
