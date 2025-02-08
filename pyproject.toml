@@ -17,12 +17,12 @@ pylint = "^3.3.4"
 pre-commit = "^4.1.0"
 
 [tool.poetry.scripts]
-runserver = "python manage.py runserver"
-makemigrations = "python manage.py makemigrations"
-migrate = "python manage.py migrate"
+#runserver = "python manage.py runserver"
+#makemigrations = "python manage.py makemigrations"
+#migrate = "python manage.py migrate"
 #format = "black ."  # Format all Python files in the project
 #lint = "pylint ."   # Lint all Python files in the project
-pre-commit = "pre-commit run"
+#pre-commit = "pre-commit run"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
