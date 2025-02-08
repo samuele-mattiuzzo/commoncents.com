@@ -20,8 +20,8 @@ pre-commit = "^4.1.0"
 runserver = "python manage.py runserver"
 makemigrations = "python manage.py makemigrations"
 migrate = "python manage.py migrate"
-format = "black ."  # Format all Python files in the project
-lint = "pylint ."   # Lint all Python files in the project
+#format = "black ."  # Format all Python files in the project
+#lint = "pylint ."   # Lint all Python files in the project
 pre-commit = "pre-commit run"
 
 [build-system]
